@@ -1,0 +1,235 @@
+@import 'tailwindcss';
+
+:root {
+  --canvas: #140705;
+  --paper: #fff7ea;
+  --maroon: #8d1410;
+  --maroon-deep: #4b0806;
+  --leaf: #415b2d;
+  --gold: #d2a351;
+  --ink: #26130d;
+  --muted: #7a665b;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--paper);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+img, video { display: block; max-width: 100%; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+h1 { font-size: clamp(56px, 10vw, 128px); line-height: 0.9; max-width: 760px; }
+h2 { font-size: clamp(34px, 6vw, 78px); line-height: 0.95; }
+h3 { font-size: 22px; line-height: 1.1; }
+
+.topbar {
+  align-items: center;
+  background: color-mix(in srgb, var(--maroon-deep) 84%, transparent);
+  border-bottom: 1px solid rgba(255, 247, 234, 0.14);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  left: 0;
+  padding: 14px clamp(18px, 4vw, 56px);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+}
+
+.brand { align-items: center; display: flex; gap: 12px; min-width: 0; }
+.brand img {
+  aspect-ratio: 1;
+  background: var(--maroon);
+  height: 48px;
+  object-fit: contain;
+  padding: 4px;
+}
+.brand span { display: grid; gap: 2px; }
+.brand strong { font-family: Georgia, serif; font-size: 20px; letter-spacing: 0; }
+.brand small, .eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.navlinks {
+  color: rgba(255, 247, 234, 0.82);
+  display: flex;
+  font-size: 14px;
+  gap: clamp(14px, 3vw, 34px);
+}
+
+.navcta, .heroActions a, .visitCard a {
+  background: var(--gold);
+  color: var(--ink);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 18px;
+}
+
+.hero {
+  align-items: end;
+  display: grid;
+  min-height: 96vh;
+  overflow: hidden;
+  padding: 120px clamp(18px, 6vw, 84px) 48px;
+  position: relative;
+}
+.heroMedia { inset: 0; position: absolute; z-index: 0; }
+.heroMedia img, .heroVideo { height: 100%; object-fit: cover; width: 100%; }
+.heroVideo {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.heroFallback { position: relative; z-index: 0; }
+.heroShade {
+  background:
+    linear-gradient(90deg, rgba(20, 7, 5, 0.96), rgba(20, 7, 5, 0.58), rgba(20, 7, 5, 0.28)),
+    linear-gradient(0deg, rgba(20, 7, 5, 0.94), transparent 45%);
+  inset: 0;
+  position: absolute;
+  z-index: 2;
+}
+.heroCopy { max-width: 760px; position: relative; z-index: 1; }
+.telugu {
+  color: rgba(255, 247, 234, 0.72);
+  font-size: clamp(22px, 3vw, 34px);
+  margin-top: 14px;
+}
+.lead {
+  color: rgba(255, 247, 234, 0.86);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
+  margin-top: 24px;
+  max-width: 680px;
+}
+.heroActions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.heroActions a:nth-child(2) {
+  background: rgba(255, 247, 234, 0.12);
+  border: 1px solid rgba(255, 247, 234, 0.28);
+  color: var(--paper);
+}
+.quickFacts {
+  bottom: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: absolute;
+  right: clamp(18px, 6vw, 84px);
+  z-index: 1;
+}
+.quickFacts span {
+  background: rgba(255, 247, 234, 0.12);
+  border: 1px solid rgba(255, 247, 234, 0.2);
+  color: rgba(255, 247, 234, 0.86);
+  padding: 10px 12px;
+}
+
+.story, .menu, .omni, .visit {
+  padding: clamp(72px, 10vw, 132px) clamp(18px, 6vw, 84px);
+}
+.story, .omni { background: var(--paper); color: var(--ink); }
+.sectionIntro { display: grid; gap: 18px; max-width: 780px; }
+.sectionIntro p:not(.eyebrow), .ambience p, .visit p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.frameGrid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 48px;
+}
+.frame {
+  background: #fffdf6;
+  border: 1px solid rgba(75, 8, 6, 0.12);
+}
+.frame img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.frame div { display: grid; gap: 12px; padding: 24px; }
+.frame p { color: var(--maroon); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+.frame span { color: var(--muted); line-height: 1.55; }
+
+.ambience {
+  align-items: center;
+  background: #1f0b07;
+  display: grid;
+  gap: clamp(28px, 6vw, 76px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  padding: clamp(72px, 10vw, 132px) clamp(18px, 6vw, 84px);
+}
+.ambience img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.ambience p:not(.eyebrow) { color: rgba(255, 247, 234, 0.78); margin-top: 24px; }
+
+.menu { background: #f5ead8; color: var(--ink); }
+.compact { max-width: 920px; }
+.menuGrid, .promptGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 34px;
+}
+.menuGrid article, .promptGrid article, .visitCard {
+  background: rgba(255, 253, 246, 0.72);
+  border: 1px solid rgba(75, 8, 6, 0.12);
+  padding: 24px;
+}
+.menuGrid p, .promptGrid p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.dishStrip {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  margin-top: 18px;
+}
+.dishStrip img { aspect-ratio: 4 / 3; height: 100%; object-fit: cover; width: 100%; }
+.promptGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.promptGrid p { font-size: 14px; }
+
+.visit {
+  align-items: center;
+  background: var(--maroon-deep);
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+}
+.visit h2 { max-width: 780px; }
+.visit p { color: rgba(255, 247, 234, 0.76); margin-top: 22px; }
+.visitCard {
+  background: rgba(255, 247, 234, 0.08);
+  border-color: rgba(255, 247, 234, 0.18);
+}
+.visitCard span { color: var(--gold); font-weight: 800; text-transform: uppercase; }
+.visitCard a { margin-top: 24px; width: 100%; }
+
+@media (max-width: 860px) {
+  .navlinks { display: none; }
+  .hero { min-height: 92vh; }
+  .quickFacts { left: 18px; right: 18px; }
+  .frameGrid, .ambience, .menuGrid, .promptGrid, .dishStrip, .visit {
+    grid-template-columns: 1fr;
+  }
+  .dishStrip img { aspect-ratio: 16 / 10; }
+}
